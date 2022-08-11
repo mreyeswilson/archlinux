@@ -5,11 +5,8 @@
 # Seteamos el teclado latinoamericano.
 loadkeys=la-latin1
 
-# checkeamos el disco
-lsblk | grep "sda0"
-
 # creamos la tabla de particiones
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk ${TGTDEV}
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/sda
   g # create new GPT partition table
   n # new partition
   1 # partition number 1

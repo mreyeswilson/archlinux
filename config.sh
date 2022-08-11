@@ -9,9 +9,9 @@ PARTUUID=$(blkid -s PARTUUID -o value /dev/sda3)
 
 ln -s /usr/shared/zoneinfo/$TIMEZONE > /etc/localtime
 
-echo $(LANG) > /etc/locale.conf
-echo $(KEYMAP) > /etc/vconsole.conf
-echo $(HOSTNAME) > /etc/hostname
+echo LANG=$LANG > /etc/locale.conf
+echo KEYMAP=$KEYMAP > /etc/vconsole.conf
+echo $HOSTNAME > /etc/hostname
 
 echo -e "127.0.0.1  localhost\n::1  localhost\n127.0.0.1    $HOSTNAME" >> /etc/hosts
 
